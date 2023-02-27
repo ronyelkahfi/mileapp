@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Package;
+
 class PackageController extends Controller
 {
     //
@@ -66,13 +67,35 @@ class PackageController extends Controller
     public function getList(){
         $list = Package::all();
         if(!$list){
-
+            return response(json_encode([
+                "status" => 400,
+                "message" => 'Data Not Found'
+            ]), 200)
+            ->header('Content-Type', 'text/json');
         }
         return response(json_encode([
             "status" => 200,
             "message" => "success",
             "data" => $list
-        ]), 201)
+        ]), 200)
+        ->header('Content-Type', 'text/json');
+    }
+
+    public function getDetail($id){
+        $data = Package::where('transaction_id',$id)->get();
+        if(!$data){
+            return response(json_encode([
+                "status" => 400,
+                "message" => 'Data Not Found'
+            ]), 200)
+            ->header('Content-Type', 'text/json');
+        }
+
+        return response(json_encode([
+            "status" => 200,
+            "message" => "success",
+            "data" => $data
+        ]), 200)
         ->header('Content-Type', 'text/json');
     }
 }
