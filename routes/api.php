@@ -17,7 +17,7 @@ Route::get('/token', function () {
     return csrf_token(); 
 });
 Route::post('package',[PackageController::class, 'create']);
-
+Route::get('package',[PackageController::class, 'getList']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

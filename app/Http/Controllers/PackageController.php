@@ -62,4 +62,17 @@ class PackageController extends Controller
         ]), 201)
         ->header('Content-Type', 'text/json');
     }
+
+    public function getList(){
+        $list = Package::all();
+        if(!$list){
+
+        }
+        return response(json_encode([
+            "status" => 200,
+            "message" => "success",
+            "data" => $list
+        ]), 201)
+        ->header('Content-Type', 'text/json');
+    }
 }
