@@ -19,6 +19,7 @@ Route::get('/token', function () {
 Route::post('package',[PackageController::class, 'create']);
 Route::get('package',[PackageController::class, 'getList']);
 Route::get('package/{id}',[PackageController::class, 'getDetail']);
+Route::put('package/{id}',[PackageController::class, 'update']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
