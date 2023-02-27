@@ -160,4 +160,110 @@ class PackageController extends Controller
         ]), 201)
         ->header('Content-Type', 'text/json');
     }
+    public function updatePatch(Request $request, $id){
+        $check = Package::where('transaction_id',$id)->get();
+        if(count($check)==0){
+            return response(json_encode([
+                "status" => 400,
+                "message" => 'Data Not Found'
+            ]), 200)
+            ->header('Content-Type', 'text/json');
+        }
+        $data = $request->getContent();
+        $decoded = json_decode($data);
+        $packageData = [];
+        if(!empty($decoded->customer_name)){
+            $packageData['customer_name'] = $decoded->customer_name;
+        }
+        if(!empty($decoded->customer_code)){
+            $packageData['customer_code'] = $decoded->customer_code;
+        }
+        if(!empty($decoded->transaction_amount)){
+            $packageData['transaction_amount'] = $decoded->transaction_amount;
+        }
+        if(!empty($decoded->transaction_amount)){
+            $packageData['transaction_amount'] = $decoded->transaction_amount;
+        }
+        if(!empty($decoded->transaction_discount)){
+            $packageData['transaction_discount'] = $decoded->transaction_discount;
+        }
+        if(!empty($decoded->transaction_additional_field)){
+            $packageData['transaction_additional_field'] = $decoded->transaction_additional_field;
+        }
+        if(!empty($decoded->transaction_payment_type)){
+            $packageData['transaction_payment_type'] = $decoded->transaction_payment_type;
+        }
+        if(!empty($decoded->transaction_state)){
+            $packageData['transaction_state'] = $decoded->transaction_state;
+        }
+        if(!empty($decoded->transaction_code)){ 
+            $packageData['transaction_code'] = $decoded->transaction_code;
+        }
+        if(!empty($decoded->transaction_order)){ 
+            $packageData['transaction_order'] = $decoded->transaction_order;
+        }
+        if(!empty($decoded->location_id)){ 
+            $packageData['location_id'] = $decoded->location_id;
+        }
+        if(!empty($decoded->organization_id)){ 
+            $packageData['organization_id'] = $decoded->organization_id;
+        }
+        if(!empty($decoded->transaction_payment_type_name)){ 
+            $packageData['transaction_payment_type_name'] = $decoded->transaction_payment_type_name;
+        }
+        if(!empty($decoded->transaction_cash_amount)){ 
+            $packageData['transaction_cash_amount'] = $decoded->transaction_cash_amount;
+        }
+        if(!empty($decoded->transaction_cash_change)){ 
+            $packageData['transaction_cash_change'] = $decoded->transaction_cash_change;
+        }
+        if(!empty($decoded->customer_attribute)){ 
+            $packageData['customer_attribute'] = $decoded->customer_attribute;
+        }
+        if(!empty($decoded->connote)){ 
+            $packageData['connote'] = $decoded->connote;
+        }
+        if(!empty($decoded->connote_id)){ 
+            $packageData['connote_id'] = $decoded->connote_id;
+        }
+        if(!empty($decoded->origin_data)){ 
+            $packageData['origin_data'] = $decoded->origin_data;
+        }
+        if(!empty($decoded->destination_data)){ 
+            $packageData['destination_data'] = $decoded->destination_data;
+        }
+        if(!empty($decoded->koli_data)){ 
+            $packageData['koli_data'] = $decoded->koli_data;
+        }
+        if(!empty($decoded->custom_field)){ 
+            $packageData['custom_field'] = $decoded->custom_field;
+        }
+        if(!empty($decoded->currentLocation)){ 
+            $packageData['currentLocation'] = $decoded->currentLocation;
+        }
+
+        if(count($packageData)==0){
+            return response(json_encode([
+                "status" => 200,
+                "message" => 'No Data Updated'
+            ]), 200)
+            ->header('Content-Type', 'text/json'); 
+        }
+        
+        $updatedData = Package::where('transaction_id', $id)
+        ->update($packageData);
+        if(!$updatedData){
+            return response(json_encode([
+                "status" => 500,
+                "message" => 'Internal Server Error'
+            ]), 500)
+            ->header('Content-Type', 'text/json'); 
+        }
+        return response(json_encode([
+            "status" => 201,
+            "message" => "updated",
+            "data" => $packageData
+        ]), 201)
+        ->header('Content-Type', 'text/json');
+    }
 }
