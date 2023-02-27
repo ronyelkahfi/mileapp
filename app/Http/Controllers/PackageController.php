@@ -47,6 +47,19 @@ class PackageController extends Controller
         // $connote = [
 
         // ]
-        return Package::create($packageDate);
+        $dataCreated = Package::create($packageDate);
+        if(!$dataCreated){
+            return response(json_encode([
+                "status" => 500,
+                "message" => 'Internal Server Error'
+            ]), 500)
+            ->header('Content-Type', 'text/json'); 
+        }
+        return response(json_encode([
+            "status" => 201,
+            "message" => "created",
+            "data" => $dataCreated
+        ]), 201)
+        ->header('Content-Type', 'text/json');
     }
 }
