@@ -14,7 +14,7 @@ class CreatePackageTable extends Migration
     public function up()
     {
         Schema::create('package', function (Blueprint $table) {
-            $table->uuid('transaction_id')->primary();
+            // $table->string('transaction_id')->primary();
             $table->string('customer_name');
             $table->string('customer_code');
             $table->integer('transaction_amount');
