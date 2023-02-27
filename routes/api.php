@@ -21,6 +21,5 @@ Route::get('package',[PackageController::class, 'getList']);
 Route::get('package/{id}',[PackageController::class, 'getDetail']);
 Route::put('package/{id}',[PackageController::class, 'update']);
 Route::patch('package/{id}',[PackageController::class, 'updatePatch']);
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::delete('package/{id}',[PackageController::class, 'delete']);
+

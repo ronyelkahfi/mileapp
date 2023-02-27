@@ -266,4 +266,21 @@ class PackageController extends Controller
         ]), 201)
         ->header('Content-Type', 'text/json');
     }
+    public function delete($id){
+        $deleted = Package::where('transaction_id', $id)->get();
+        if(count($deleted)==0){
+            return response(json_encode([
+                "status" => 400,
+                "message" => 'Data Not Found'
+            ]), 200)
+            ->header('Content-Type', 'text/json');
+        }
+        $deleted = Package::where('transaction_id', $id)->delete();
+        return response(json_encode([
+            "status" => 200,
+            "message" => "deleted",
+            "data" => $deleted
+        ]), 200)
+        ->header('Content-Type', 'text/json');
+    }
 }
