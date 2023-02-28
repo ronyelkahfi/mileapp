@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "6672dd07-33c8-4ddd-8bd2-6bead6a61671",
+		"name": "MileApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17211865"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "Fvt1IDSMHM3sZlCBasWSiw2PyEE4F4f3y2l3AJL8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"transaction_id\": \"d0090c40-539f-479a-8274-899b9970bddc\",\r\n  \"customer_name\": \"PT. AMARA PRIMATIGA\",\r\n  \"customer_code\": \"1678593\",\r\n  \"transaction_amount\": \"70700\",\r\n  \"transaction_discount\": \"0\",\r\n  \"transaction_additional_field\": \"\",\r\n  \"transaction_payment_type\": \"29\",\r\n  \"transaction_state\": \"PAID\",\r\n  \"transaction_code\": \"CGKFT20200715121\",\r\n  \"transaction_order\": 121,\r\n  \"location_id\": \"5cecb20b6c49615b174c3e74\",\r\n  \"organization_id\": 6,\r\n  \"created_at\": \"2020-07-15T11:11:12+0700\",\r\n  \"updated_at\": \"2020-07-15T11:11:22+0700\",\r\n  \"transaction_payment_type_name\": \"Invoice\",\r\n  \"transaction_cash_amount\": 0,\r\n  \"transaction_cash_change\": 0,\r\n  \"customer_attribute\": {\r\n    \"Nama_Sales\": \"Radit Fitrawikarsa\",\r\n    \"TOP\": \"14 Hari\",\r\n    \"Jenis_Pelanggan\": \"B2B\"\r\n  },\r\n  \"connote\": {\r\n    \"connote_id\": \"f70670b1-c3ef-4caf-bc4f-eefa702092ed\",\r\n    \"connote_number\": 1,\r\n    \"connote_service\": \"ECO\",\r\n    \"connote_service_price\": 70700,\r\n    \"connote_amount\": 70700,\r\n    \"connote_code\": \"AWB00100209082020\",\r\n    \"connote_booking_code\": \"\",\r\n    \"connote_order\": 326931,\r\n    \"connote_state\": \"PAID\",\r\n    \"connote_state_id\": 2,\r\n    \"zone_code_from\": \"CGKFT\",\r\n    \"zone_code_to\": \"SMG\",\r\n    \"surcharge_amount\": null,\r\n    \"transaction_id\": \"d0090c40-539f-479a-8274-899b9970bddc\",\r\n    \"actual_weight\": 20,\r\n    \"volume_weight\": 0,\r\n    \"chargeable_weight\": 20,\r\n    \"created_at\": \"2020-07-15T11:11:12+0700\",\r\n    \"updated_at\": \"2020-07-15T11:11:22+0700\",\r\n    \"organization_id\": 6,\r\n    \"location_id\": \"5cecb20b6c49615b174c3e74\",\r\n    \"connote_total_package\": \"3\",\r\n    \"connote_surcharge_amount\": \"0\",\r\n    \"connote_sla_day\": \"4\",\r\n    \"location_name\": \"Hub Jakarta Selatan\",\r\n    \"location_type\": \"HUB\",\r\n    \"source_tariff_db\": \"tariff_customers\",\r\n    \"id_source_tariff\": \"1576868\",\r\n    \"pod\": null,\r\n    \"history\": []\r\n  },\r\n  \"connote_id\": \"f70670b1-c3ef-4caf-bc4f-eefa702092ed\",\r\n  \"origin_data\": {\r\n    \"customer_name\": \"PT. NARA OKA PRAKARSA\",\r\n    \"customer_address\": \"JL. KH. AHMAD DAHLAN NO. 100, SEMARANG TENGAH 12420\",\r\n    \"customer_email\": \"info@naraoka.co.id\",\r\n    \"customer_phone\": \"024-1234567\",\r\n    \"customer_address_detail\": null,\r\n    \"customer_zip_code\": \"12420\",\r\n    \"zone_code\": \"CGKFT\",\r\n    \"organization_id\": 6,\r\n    \"location_id\": \"5cecb20b6c49615b174c3e74\"\r\n  },\r\n  \"destination_data\": {\r\n    \"customer_name\": \"PT AMARIS HOTEL SIMPANG LIMA\",\r\n    \"customer_address\": \"JL. KH. AHMAD DAHLAN NO. 01, SEMARANG TENGAH\",\r\n    \"customer_email\": null,\r\n    \"customer_phone\": \"0248453499\",\r\n    \"customer_address_detail\": \"KOTA SEMARANG SEMARANG TENGAH KARANGKIDUL\",\r\n    \"customer_zip_code\": \"50241\",\r\n    \"zone_code\": \"SMG\",\r\n    \"organization_id\": 6,\r\n    \"location_id\": \"5cecb20b6c49615b174c3e74\"\r\n  },\r\n  \"koli_data\": [\r\n    {\r\n      \"koli_length\": 0,\r\n      \"awb_url\": \"https://tracking.mile.app/label/AWB00100209082020.1\",\r\n      \"created_at\": \"2020-07-15 11:11:13\",\r\n      \"koli_chargeable_weight\": 9,\r\n      \"koli_width\": 0,\r\n      \"koli_surcharge\": [],\r\n      \"koli_height\": 0,\r\n      \"updated_at\": \"2020-07-15 11:11:13\",\r\n      \"koli_description\": \"V WARP\",\r\n      \"koli_formula_id\": null,\r\n      \"connote_id\": \"f70670b1-c3ef-4caf-bc4f-eefa702092ed\",\r\n      \"koli_volume\": 0,\r\n      \"koli_weight\": 9,\r\n      \"koli_id\": \"e2cb6d86-0bb9-409b-a1f0-389ed4f2df2d\",\r\n      \"koli_custom_field\": {\r\n        \"awb_sicepat\": null,\r\n        \"harga_barang\": null\r\n      },\r\n      \"koli_code\": \"AWB00100209082020.1\"\r\n    },\r\n    {\r\n      \"koli_length\": 0,\r\n      \"awb_url\": \"https://tracking.mile.app/label/AWB00100209082020.2\",\r\n      \"created_at\": \"2020-07-15 11:11:13\",\r\n      \"koli_chargeable_weight\": 9,\r\n      \"koli_width\": 0,\r\n      \"koli_surcharge\": [],\r\n      \"koli_height\": 0,\r\n      \"updated_at\": \"2020-07-15 11:11:13\",\r\n      \"koli_description\": \"V WARP\",\r\n      \"koli_formula_id\": null,\r\n      \"connote_id\": \"f70670b1-c3ef-4caf-bc4f-eefa702092ed\",\r\n      \"koli_volume\": 0,\r\n      \"koli_weight\": 9,\r\n      \"koli_id\": \"3600f10b-4144-4e58-a024-cc3178e7a709\",\r\n      \"koli_custom_field\": {\r\n        \"awb_sicepat\": null,\r\n        \"harga_barang\": null\r\n      },\r\n      \"koli_code\": \"AWB00100209082020.2\"\r\n    },\r\n    {\r\n      \"koli_length\": 0,\r\n      \"awb_url\": \"https://tracking.mile.app/label/AWB00100209082020.3\",\r\n      \"created_at\": \"2020-07-15 11:11:13\",\r\n      \"koli_chargeable_weight\": 2,\r\n      \"koli_width\": 0,\r\n      \"koli_surcharge\": [],\r\n      \"koli_height\": 0,\r\n      \"updated_at\": \"2020-07-15 11:11:13\",\r\n      \"koli_description\": \"LID HOT CUP\",\r\n      \"koli_formula_id\": null,\r\n      \"connote_id\": \"f70670b1-c3ef-4caf-bc4f-eefa702092ed\",\r\n      \"koli_volume\": 0,\r\n      \"koli_weight\": 2,\r\n      \"koli_id\": \"2937bdbf-315e-4c5e-b139-fd39a3dfd15f\",\r\n      \"koli_custom_field\": {\r\n        \"awb_sicepat\": null,\r\n        \"harga_barang\": null\r\n      },\r\n      \"koli_code\": \"AWB00100209082020.3\"\r\n    }\r\n  ],\r\n  \"custom_field\": {\r\n    \"catatan_tambahan\": \"JANGAN DI BANTING / DI TINDIH\"\r\n  },\r\n  \"currentLocation\": {\r\n    \"name\": \"Hub Jakarta Selatan\",\r\n    \"code\": \"JKTS01\",\r\n    \"type\": \"Agent\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/package",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"package"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Package",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/package",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"package"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/package/d0090c40-539f-479a-8274-899b9970bddc",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"package",
+						"d0090c40-539f-479a-8274-899b9970bddc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"transaction_id\": \"d0090c40-539f-479a-8274-899b9970bddc\",\r\n  \"customer_name\": \"PT. AMARA PRIMATIGA\",\r\n  \"customer_code\": \"1678593\",\r\n  \"transaction_amount\": \"70700\",\r\n  \"transaction_discount\": \"0\",\r\n  \"transaction_additional_field\": \"\",\r\n  \"transaction_payment_type\": \"29\",\r\n  \"transaction_state\": \"PAID\",\r\n  \"transaction_code\": \"CGKFT20200715121\",\r\n  \"transaction_order\": 121,\r\n  \"location_id\": \"5cecb20b6c49615b174c3e74\",\r\n  \"organization_id\": 6,\r\n  \"created_at\": \"2020-07-15T11:11:12+0700\",\r\n  \"updated_at\": \"2020-07-15T11:11:22+0700\",\r\n  \"transaction_payment_type_name\": \"Invoice\",\r\n  \"transaction_cash_amount\": 0,\r\n  \"transaction_cash_change\": 0,\r\n  \"customer_attribute\": {\r\n    \"Nama_Sales\": \"Radit Fitrawikarsa\",\r\n    \"TOP\": \"14 Hari\",\r\n    \"Jenis_Pelanggan\": \"B2B\"\r\n  },\r\n  \"connote\": {\r\n    \"connote_id\": \"f70670b1-c3ef-4caf-bc4f-eefa702092ed\",\r\n    \"connote_number\": 1,\r\n    \"connote_service\": \"ECO\",\r\n    \"connote_service_price\": 70700,\r\n    \"connote_amount\": 70700,\r\n    \"connote_code\": \"AWB00100209082020\",\r\n    \"connote_booking_code\": \"\",\r\n    \"connote_order\": 326931,\r\n    \"connote_state\": \"PAID\",\r\n    \"connote_state_id\": 2,\r\n    \"zone_code_from\": \"CGKFT\",\r\n    \"zone_code_to\": \"SMG\",\r\n    \"surcharge_amount\": null,\r\n    \"transaction_id\": \"d0090c40-539f-479a-8274-899b9970bddc\",\r\n    \"actual_weight\": 20,\r\n    \"volume_weight\": 0,\r\n    \"chargeable_weight\": 20,\r\n    \"created_at\": \"2020-07-15T11:11:12+0700\",\r\n    \"updated_at\": \"2020-07-15T11:11:22+0700\",\r\n    \"organization_id\": 6,\r\n    \"location_id\": \"5cecb20b6c49615b174c3e74\",\r\n    \"connote_total_package\": \"3\",\r\n    \"connote_surcharge_amount\": \"0\",\r\n    \"connote_sla_day\": \"4\",\r\n    \"location_name\": \"Hub Jakarta Selatan\",\r\n    \"location_type\": \"HUB\",\r\n    \"source_tariff_db\": \"tariff_customers\",\r\n    \"id_source_tariff\": \"1576868\",\r\n    \"pod\": null,\r\n    \"history\": []\r\n  },\r\n  \"connote_id\": \"f70670b1-c3ef-4caf-bc4f-eefa702092ed\",\r\n  \"origin_data\": {\r\n    \"customer_name\": \"PT. NARA OKA PRAKARSA\",\r\n    \"customer_address\": \"JL. KH. AHMAD DAHLAN NO. 100, SEMARANG TENGAH 12420\",\r\n    \"customer_email\": \"info@naraoka.co.id\",\r\n    \"customer_phone\": \"024-1234567\",\r\n    \"customer_address_detail\": null,\r\n    \"customer_zip_code\": \"12420\",\r\n    \"zone_code\": \"CGKFT\",\r\n    \"organization_id\": 6,\r\n    \"location_id\": \"5cecb20b6c49615b174c3e74\"\r\n  },\r\n  \"destination_data\": {\r\n    \"customer_name\": \"PT AMARIS HOTEL SIMPANG LIMA\",\r\n    \"customer_address\": \"JL. KH. AHMAD DAHLAN NO. 01, SEMARANG TENGAH\",\r\n    \"customer_email\": null,\r\n    \"customer_phone\": \"0248453499\",\r\n    \"customer_address_detail\": \"KOTA SEMARANG SEMARANG TENGAH KARANGKIDUL\",\r\n    \"customer_zip_code\": \"50241\",\r\n    \"zone_code\": \"SMG\",\r\n    \"organization_id\": 6,\r\n    \"location_id\": \"5cecb20b6c49615b174c3e74\"\r\n  },\r\n  \"koli_data\": [\r\n    {\r\n      \"koli_length\": 0,\r\n      \"awb_url\": \"https://tracking.mile.app/label/AWB00100209082020.1\",\r\n      \"created_at\": \"2020-07-15 11:11:13\",\r\n      \"koli_chargeable_weight\": 9,\r\n      \"koli_width\": 0,\r\n      \"koli_surcharge\": [],\r\n      \"koli_height\": 0,\r\n      \"updated_at\": \"2020-07-15 11:11:13\",\r\n      \"koli_description\": \"V WARP\",\r\n      \"koli_formula_id\": null,\r\n      \"connote_id\": \"f70670b1-c3ef-4caf-bc4f-eefa702092ed\",\r\n      \"koli_volume\": 0,\r\n      \"koli_weight\": 9,\r\n      \"koli_id\": \"e2cb6d86-0bb9-409b-a1f0-389ed4f2df2d\",\r\n      \"koli_custom_field\": {\r\n        \"awb_sicepat\": null,\r\n        \"harga_barang\": null\r\n      },\r\n      \"koli_code\": \"AWB00100209082020.1\"\r\n    },\r\n    {\r\n      \"koli_length\": 0,\r\n      \"awb_url\": \"https://tracking.mile.app/label/AWB00100209082020.2\",\r\n      \"created_at\": \"2020-07-15 11:11:13\",\r\n      \"koli_chargeable_weight\": 9,\r\n      \"koli_width\": 0,\r\n      \"koli_surcharge\": [],\r\n      \"koli_height\": 0,\r\n      \"updated_at\": \"2020-07-15 11:11:13\",\r\n      \"koli_description\": \"V WARP\",\r\n      \"koli_formula_id\": null,\r\n      \"connote_id\": \"f70670b1-c3ef-4caf-bc4f-eefa702092ed\",\r\n      \"koli_volume\": 0,\r\n      \"koli_weight\": 9,\r\n      \"koli_id\": \"3600f10b-4144-4e58-a024-cc3178e7a709\",\r\n      \"koli_custom_field\": {\r\n        \"awb_sicepat\": null,\r\n        \"harga_barang\": null\r\n      },\r\n      \"koli_code\": \"AWB00100209082020.2\"\r\n    },\r\n    {\r\n      \"koli_length\": 0,\r\n      \"awb_url\": \"https://tracking.mile.app/label/AWB00100209082020.3\",\r\n      \"created_at\": \"2020-07-15 11:11:13\",\r\n      \"koli_chargeable_weight\": 2,\r\n      \"koli_width\": 0,\r\n      \"koli_surcharge\": [],\r\n      \"koli_height\": 0,\r\n      \"updated_at\": \"2020-07-15 11:11:13\",\r\n      \"koli_description\": \"LID HOT CUP\",\r\n      \"koli_formula_id\": null,\r\n      \"connote_id\": \"f70670b1-c3ef-4caf-bc4f-eefa702092ed\",\r\n      \"koli_volume\": 0,\r\n      \"koli_weight\": 2,\r\n      \"koli_id\": \"2937bdbf-315e-4c5e-b139-fd39a3dfd15f\",\r\n      \"koli_custom_field\": {\r\n        \"awb_sicepat\": null,\r\n        \"harga_barang\": null\r\n      },\r\n      \"koli_code\": \"AWB00100209082020.3\"\r\n    }\r\n  ],\r\n  \"custom_field\": {\r\n    \"catatan_tambahan\": \"JANGAN DI BANTING / DI TINDIH\"\r\n  },\r\n  \"currentLocation\": {\r\n    \"name\": \"Hub Jakarta Selatan\",\r\n    \"code\": \"JKTS01\",\r\n    \"type\": \"Agent\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/package/d0090c40-539f-479a-8274-899b9970bddc",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"package",
+						"d0090c40-539f-479a-8274-899b9970bddc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Patch",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_name\": \"Ir. H. Yanto, Spd, M.Pd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/package/d0090c40-539f-479a-8274-899b9970bddc",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"package",
+						"d0090c40-539f-479a-8274-899b9970bddc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/package/d0090c40-539f-479a-8274-899b9970bddc",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"package",
+						"d0090c40-539f-479a-8274-899b9970bddc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

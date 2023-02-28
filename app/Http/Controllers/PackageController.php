@@ -9,9 +9,9 @@ class PackageController extends Controller
 {
     //
     private $packageValidation = [
-        'transaction_id' => 'required|max:255',
-        'customer_name' => 'required|max:255',
-        'customer_code' => 'required|max:255',
+        'transaction_id' => 'required|max:64|min:5',
+        'customer_name' => 'required|max:64|min:5',
+        'customer_code' => 'required|max:64|min:5',
         'transaction_amount' => 'required|max:7',
         'transaction_discount' => 'max:7',
         'transaction_additional_field' => 'max:255',
@@ -20,7 +20,7 @@ class PackageController extends Controller
         'transaction_code' => 'required|max:50',
         'transaction_order' => 'required',
         'location_id' => 'required|max:255',
-        'transaction_payment_type_name' => 'required|max:255',
+        'transaction_payment_type_name' => 'required|max:16',
         'transaction_cash_amount' => 'max:10',
         'transaction_cash_change' => 'max:10',
         'connote_id' => 'max:255'
