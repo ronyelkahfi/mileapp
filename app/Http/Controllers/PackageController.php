@@ -221,59 +221,104 @@ class PackageController extends Controller
         $data = $request->getContent();
         $decoded = json_decode($data);
         $packageData = [];
+        $packageValidation = $this->packageValidation;
+        $packageValidationSelected = [];
         if(!empty($decoded->customer_name)){
             $packageData['customer_name'] = $decoded->customer_name;
+            if(!empty($packageValidation['customer_name'])){
+                $packageValidationSelected['customer_name'] = $packageValidation['customer_name'];
+            }
         }
         if(!empty($decoded->customer_code)){
             $packageData['customer_code'] = $decoded->customer_code;
+            if(!empty($packageValidation['customer_code'])){
+                $packageValidationSelected['customer_code'] = $packageValidation['customer_code'];
+            }
         }
         if(!empty($decoded->transaction_amount)){
             $packageData['transaction_amount'] = $decoded->transaction_amount;
-        }
-        if(!empty($decoded->transaction_amount)){
-            $packageData['transaction_amount'] = $decoded->transaction_amount;
+            if(!empty($packageValidation['transaction_amount'])){
+                $packageValidationSelected['transaction_amount'] = $packageValidation['transaction_amount'];
+            }
         }
         if(!empty($decoded->transaction_discount)){
             $packageData['transaction_discount'] = $decoded->transaction_discount;
+            if(!empty($packageValidation['transaction_discount'])){
+                $packageValidationSelected['transaction_discount'] = $packageValidation['transaction_discount'];
+            }
         }
         if(!empty($decoded->transaction_additional_field)){
             $packageData['transaction_additional_field'] = $decoded->transaction_additional_field;
+            if(!empty($packageValidation['transaction_additional_field'])){
+                $packageValidationSelected['transaction_additional_field'] = $packageValidation['transaction_additional_field'];
+            }
         }
         if(!empty($decoded->transaction_payment_type)){
             $packageData['transaction_payment_type'] = $decoded->transaction_payment_type;
+            if(!empty($packageValidation['transaction_payment_type'])){
+                $packageValidationSelected['transaction_payment_type'] = $packageValidation['transaction_payment_type'];
+            }
         }
         if(!empty($decoded->transaction_state)){
             $packageData['transaction_state'] = $decoded->transaction_state;
+            if(!empty($packageValidation['transaction_state'])){
+                $packageValidationSelected['transaction_state'] = $packageValidation['transaction_state'];
+            }
         }
         if(!empty($decoded->transaction_code)){ 
             $packageData['transaction_code'] = $decoded->transaction_code;
+            if(!empty($packageValidation['transaction_code'])){
+                $packageValidationSelected['transaction_code'] = $packageValidation['transaction_code'];
+            }
         }
         if(!empty($decoded->transaction_order)){ 
             $packageData['transaction_order'] = $decoded->transaction_order;
+            if(!empty($packageValidation['transaction_order'])){
+                $packageValidationSelected['transaction_order'] = $packageValidation['transaction_order'];
+            }
         }
         if(!empty($decoded->location_id)){ 
             $packageData['location_id'] = $decoded->location_id;
+            if(!empty($packageValidation['location_id'])){
+                $packageValidationSelected['location_id'] = $packageValidation['location_id'];
+            }
         }
         if(!empty($decoded->organization_id)){ 
             $packageData['organization_id'] = $decoded->organization_id;
+            if(!empty($packageValidation['organization_id'])){
+                $packageValidationSelected['organization_id'] = $packageValidation['organization_id'];
+            }
         }
         if(!empty($decoded->transaction_payment_type_name)){ 
             $packageData['transaction_payment_type_name'] = $decoded->transaction_payment_type_name;
+            if(!empty($packageValidation['transaction_payment_type_name'])){
+                $packageValidationSelected['transaction_payment_type_name'] = $packageValidation['transaction_payment_type_name'];
+            }
         }
         if(!empty($decoded->transaction_cash_amount)){ 
             $packageData['transaction_cash_amount'] = $decoded->transaction_cash_amount;
+            if(!empty($packageValidation['transaction_cash_amount'])){
+                $packageValidationSelected['transaction_cash_amount'] = $packageValidation['transaction_cash_amount'];
+            }
         }
         if(!empty($decoded->transaction_cash_change)){ 
             $packageData['transaction_cash_change'] = $decoded->transaction_cash_change;
+            if(!empty($packageValidation['transaction_cash_change'])){
+                $packageValidationSelected['transaction_cash_change'] = $packageValidation['transaction_cash_change'];
+            }
         }
         if(!empty($decoded->customer_attribute)){ 
             $packageData['customer_attribute'] = $decoded->customer_attribute;
+            if(!empty($packageValidation['customer_attribute'])){
+                $packageValidationSelected['customer_attribute'] = $packageValidation['customer_attribute'];
+            }
         }
         if(!empty($decoded->connote)){ 
             $packageData['connote'] = $decoded->connote;
         }
         if(!empty($decoded->connote_id)){ 
             $packageData['connote_id'] = $decoded->connote_id;
+            $packagevalidationSelected['customer_name'] = $packagevalidation['customer_name'];
         }
         if(!empty($decoded->origin_data)){ 
             $packageData['origin_data'] = $decoded->origin_data;
@@ -290,7 +335,16 @@ class PackageController extends Controller
         if(!empty($decoded->currentLocation)){ 
             $packageData['currentLocation'] = $decoded->currentLocation;
         }
-
+        $validator = Validator::make((array) $decoded, $packageValidationSelected);
+        if($validator->fails()){
+            $messages = $validator->errors();
+            return response(json_encode([
+                "status" => 400,
+                "message" => 'Bad Request',
+                'constraint' => $messages
+            ]), 400)
+            ->header('Content-Type', 'text/json'); 
+        }
         if(count($packageData)==0){
             return response(json_encode([
                 "status" => 200,
