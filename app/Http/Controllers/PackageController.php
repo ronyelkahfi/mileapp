@@ -4,19 +4,55 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Package;
-
+use Illuminate\Support\Facades\Validator;
 class PackageController extends Controller
 {
     //
+    private $packageValidation = [
+        'transaction_id' => 'required|max:255',
+        'customer_name' => 'required|max:255',
+        'customer_code' => 'required|max:255',
+        'transaction_amount' => 'required|max:7',
+        'transaction_discount' => 'max:7',
+        'transaction_additional_field' => 'max:255',
+        'transaction_payment_type' => 'required|max:50',
+        'transaction_state' => 'required|max:50',
+        'transaction_code' => 'required|max:50',
+        'transaction_order' => 'required',
+        'location_id' => 'required|max:255',
+        'transaction_payment_type_name' => 'required|max:255',
+        'transaction_cash_amount' => 'max:10',
+        'transaction_cash_change' => 'max:10',
+        'connote_id' => 'max:255'
+    ];
     public function create(Request $request){
         
         $data = $request->getContent();
         $decoded = json_decode($data);
+        $packageCheck = Package::where('transaction_id',$decoded->transaction_id)->get();
+        if(count($packageCheck)>0){
+            return response(json_encode([
+                "status" => 400,
+                "message" => 'Bad Request',
+                'constraint' => ['duplicate transaction_id']
+            ]), 400)
+            ->header('Content-Type', 'text/json'); 
+        }
+        $validator = Validator::make((array) $decoded, $this->packageValidation);
+        if($validator->fails()){
+            $messages = $validator->errors();
+            return response(json_encode([
+                "status" => 400,
+                "message" => 'Bad Request',
+                'constraint' => $messages
+            ]), 400)
+            ->header('Content-Type', 'text/json'); 
+
+        }
         $packageData = [
             'transaction_id' => $decoded->transaction_id,
             'customer_name' => $decoded->customer_name,
             'customer_code' => $decoded->customer_code,
-            'transaction_amount' => $decoded->transaction_amount,
             'transaction_amount' => $decoded->transaction_amount,
             'transaction_discount' => $decoded->transaction_discount,
             'transaction_additional_field' => $decoded->transaction_additional_field,
@@ -109,6 +145,19 @@ class PackageController extends Controller
         }
         $data = $request->getContent();
         $decoded = json_decode($data);
+        $packagevalidation = $this->packageValidation;
+        unset($packagevalidation['transaction_id']);
+        $validator = Validator::make((array) $decoded, $packagevalidation);
+        if($validator->fails()){
+            $messages = $validator->errors();
+            return response(json_encode([
+                "status" => 400,
+                "message" => 'Bad Request',
+                'constraint' => $messages
+            ]), 400)
+            ->header('Content-Type', 'text/json'); 
+
+        }
         $packageData = [
             'customer_name' => $decoded->customer_name,
             'customer_code' => $decoded->customer_code,
